@@ -1,0 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bMicheal <tafftin@gmail.com>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/07 17:13:41 by bMicheal          #+#    #+#             */
+/*   Updated: 2020/10/07 17:13:41 by bMicheal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string.h>
+#include <stdio.h>
+
+void    *ft_memchr(const void *arr, int c, size_t n)
+{
+   size_t         i;
+   unsigned char  *spot;
+
+   i = 0;
+   spot = (unsigned char *)arr;
+   while (i < n)
+   {
+      if (*spot == c)
+         return (spot);
+      spot++;
+   }
+   return (NULL);
+}
+
+int main (void)
+{
+   unsigned char src[15]= "1234567890";
+   char *sym;
+
+   printf ("src old: %s\n",src);
+
+   sym = ft_memchr (src, '4', 10);
+
+   if (sym != NULL)
+      sym[0]='!';
+
+   printf ("src new: %s\n",src);
+
+   return 0;
+}
