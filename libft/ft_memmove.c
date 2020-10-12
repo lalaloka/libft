@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void    *ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -35,16 +34,4 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
             *--d = *--s;
     }
     return (dest);
-}
-
-int main (void)
-{
-   unsigned char src[]= "1234567890";
-   //unsigned char dest[] = "Zelenioglazoe taksi";
-   printf ("src original: %s\n",src);
-
-   ft_memmove (&src[4], &src[3], 3);
-
-   printf ("src new: %s\n", src);
-   return 0;
 }

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>  // Для printf
-#include <string.h> // Для strcpy
+#include "libft.h"
 
 char    *ft_strcpy(char *dst, const char *src)
 {
@@ -19,15 +18,4 @@ char    *ft_strcpy(char *dst, const char *src)
         *dst++ = *src++;
     *dst = '\0';
     return (dst);
-}
-
-int main (void)
-{    
-   char src[]= "first string\0second string";
-   char dst[]="";
-   // Копируем строку из массива src в массив dst. Обратите внимание, 
-   //что скопируется только строка «первая строка\0». 
-   ft_strcpy (dst, src);
-   printf ("src: %s\n", dst);
-   return 0;
 }

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>  // Для printf
-#include <string.h> // Для strlen
+#include "libft.h"
 
 size_t  ft_strlen(const char *str)
 {
@@ -21,11 +20,4 @@ size_t  ft_strlen(const char *str)
     while(str[i])
         i++;
     return (i);
-}
-
-int main (void)
-{    
-   char str []= "12345";
-   printf ("%I64d\n", strlen(str));
-   return 0;
 }

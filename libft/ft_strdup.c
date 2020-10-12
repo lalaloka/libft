@@ -10,10 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>  // Для printf
-#include <string.h> // Для strdup
-#include <stdlib.h> // Для free
+#include <stdlib.h>
+#include "libft.h"
 
 char  *ft_strdup(const char *str)
 {
@@ -33,17 +31,4 @@ char  *ft_strdup(const char *str)
    }
    newstr[i] = '\0';
    return (newstr);
-}
-
-int main (void)
-{    
-   char str []= "Sosed dolboebushka";
-   char *istr;
-
-   istr = ft_strdup (str);
-
-   printf ("Duplicat %s\n", istr);
-
-   free (istr);
-   return 0;
 }

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char    *ft_strcat(char *dst, const char *app)
 {
@@ -23,14 +22,4 @@ char    *ft_strcat(char *dst, const char *app)
     while (*app)
         dst[i++] = *app++;
     return (dst);
-}
-
-int main (void)
-{    
-   char app[1024]= "second string";
-   char dst[1024]= "first string";
-
-   ft_strcat (dst, app);
-   printf ("dst: %s\n",dst);
-   return 0;
 }

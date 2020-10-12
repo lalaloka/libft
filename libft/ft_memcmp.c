@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int     ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
@@ -28,14 +27,4 @@ int     ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
         str2++;
     }
     return (0);
-}
-
-int main (void)
-{
-   unsigned char src[]= "adadasd";
-   unsigned char dst[]= "1123567890";
-
-    printf("my = %d\n", ft_memcmp (src, dst, 10));
-    printf("origin = %d", memcmp (src, dst, 10));
-   return 0;
 }
