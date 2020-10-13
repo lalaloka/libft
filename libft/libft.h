@@ -52,4 +52,12 @@ char				*ft_strnstr(const char *s, const char *substr, size_t len);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strstr(const char *str, const char *substr);
 
+void				*ft_memalloc(size_t size);
+void				ft_memdel(void **ap);
+void				ft_strclr(char *s);
+void				ft_strdel(char **as);
+void				ft_striter(char *s, void (*f)(char *));
+char				*ft_strmap(char const *s, char (*f)(char));
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 #endif
