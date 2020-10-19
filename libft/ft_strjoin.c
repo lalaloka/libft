@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bMicheal <tafftin@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 15:12:33 by bMicheal          #+#    #+#             */
-/*   Updated: 2020/10/13 15:12:33 by bMicheal         ###   ########.fr       */
+/*   Created: 2020/10/14 18:08:49 by bMicheal          #+#    #+#             */
+/*   Updated: 2020/10/14 18:08:49 by bMicheal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char    *ft_strnew(size_t size)
+char    *ft_strjoin(char const *s1, char const *s2)
 {
-    char *str;
+    char            *newstr;
 
-    if (size <= 0)
+    if (!s1 || !s2)
         return (NULL);
-    str = (char *)ft_memalloc(size + 1);
-    if (!str)
+    newstr = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+    if (!newstr)
         return (NULL);
-    return (str);
+    ft_strcpy(newstr, s1);
+    ft_strcat(newstr, s2);
+    return (newstr);
 }
 
-int main()
+int     main()
 {
-    char str[] = "ooo";
-    char *new;
-    int i;
-
-    i = 0;
-    new = ft_strnew(4);
-    while(str[i])
-    {
-        new[i] = str[i];
-        i++;
-    }
-    new[i] = '\0';
+    char const s1[] = "privet ";
+    char const s2[] = "medved!";
+    char const new[25];
+    new = ft_strjoin(s1, s2);
     printf("%s", new);
+
     return 0;
 }

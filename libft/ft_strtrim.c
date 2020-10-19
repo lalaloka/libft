@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bMicheal <tafftin@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 15:12:33 by bMicheal          #+#    #+#             */
-/*   Updated: 2020/10/13 15:12:33 by bMicheal         ###   ########.fr       */
+/*   Created: 2020/10/14 18:23:34 by bMicheal          #+#    #+#             */
+/*   Updated: 2020/10/14 18:23:34 by bMicheal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char    *ft_strnew(size_t size)
+char    *ft_strtrim(char const *s)
 {
-    char *str;
+    char *news;
 
-    if (size <= 0)
+    news = ft_strnew(ft_strlen(s));
+    if (!news)
         return (NULL);
-    str = (char *)ft_memalloc(size + 1);
-    if (!str)
-        return (NULL);
-    return (str);
+    while (*s == '\n' || *s == ' ' || *s == '\t')
+        s++;
+    while (*s)
+    {
+            *news = *s;
+            news++;
+            s++;
+    }
+    *news = '\0';
+    return (news);
 }
 
 int main()
 {
-    char str[] = "ooo";
-    char *new;
-    int i;
+   const char str[] = "          kro k nam prishel     ";
+   char *new;
 
-    i = 0;
-    new = ft_strnew(4);
-    while(str[i])
-    {
-        new[i] = str[i];
-        i++;
-    }
-    new[i] = '\0';
-    printf("%s", new);
-    return 0;
+   new = ft_strtrim(str);
+   printf("%s", new);
+   return 0;
 }

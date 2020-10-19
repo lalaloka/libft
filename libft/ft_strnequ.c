@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bMicheal <tafftin@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 12:50:43 by bMicheal          #+#    #+#             */
-/*   Updated: 2020/10/09 12:50:43 by bMicheal         ###   ########.fr       */
+/*   Created: 2020/10/14 17:45:48 by bMicheal          #+#    #+#             */
+/*   Updated: 2020/10/14 17:45:48 by bMicheal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char    *ft_strcat(char *dst, const char *app)
+int     ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-    int i;
-
-    i = 0;
-    while (dst[i])
-        i++;
-    while (*app)
-        dst[i++] = *app++;
-    dst[i] = '\0';
-    return (dst);
+	if (s1 && s2)
+		return (ft_strncmp(s1, s2, n) ? 0 : 1);
+	return (0);
 }
