@@ -24,21 +24,3 @@ char    *ft_strnew(size_t size)
         return (NULL);
     return (str);
 }
-
-int main()
-{
-    char str[] = "ooo";
-    char *new;
-    int i;
-
-    i = 0;
-    new = ft_strnew(4);
-    while(str[i])
-    {
-        new[i] = str[i];
-        i++;
-    }
-    new[i] = '\0';
-    printf("%s", new);
-    return 0;
-}

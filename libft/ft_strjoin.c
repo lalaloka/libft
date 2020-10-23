@@ -25,14 +25,3 @@ char    *ft_strjoin(char const *s1, char const *s2)
     ft_strcat(newstr, s2);
     return (newstr);
 }
-
-int     main()
-{
-    char const s1[] = "privet ";
-    char const s2[] = "medved!";
-    char const new[25];
-    new = ft_strjoin(s1, s2);
-    printf("%s", new);
-
-    return 0;
-}

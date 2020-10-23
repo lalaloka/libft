@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdio.h>
 
-int     ft_wordcount(char *line, char sym)
+size_t  ft_wordcount(char *line, char sym)
 {
-    int words;
+    size_t words;
 
     words = 0;
     while (*line)
@@ -30,57 +30,74 @@ int     ft_wordcount(char *line, char sym)
     return (words);
 }
 
-int     ft_wordlen(char *str, char sym)
+char    *ft_word_sep(char *line, char sym)
 {
-    int len;
+    char *word;
 
-    len = 0;
-    while (*str == sym)
-        str++;
-    while ((*str) && (*str != sym))
+    word = line;
+    while ((*line) && (*line != sym))
+        line++;
+    *line = '\0';
+    return (ft_strdup(word));
+}
+
+void    ft_free_words(char **words, size_t i)
+{
+	while (i--)
+		ft_strdel(&(words[i]));
+	free(*words);
+}
+
+char    **ft_words(char *s, char c, size_t count)
+{
+    char    *word;
+    char    **arr;
+    size_t  i;
+
+    i = 0;
+    if (!(arr = (char **)malloc(sizeof(char *) * (count + 1))))
+        return (NULL);
+    while (i < count)
     {
-        str++;
-        len++;
+        while (*s == c)
+            s++;
+        if (*s)
+        {
+            if (!(word = ft_word_sep(s, c)))
+            {
+                ft_free_words(arr, i);
+                return (NULL);
+            }
+            arr[i] = word;
+            s = s + (ft_strlen(word) + 1);
+        }
+        i++;
     }
-    return (len);
+    arr[i] = NULL;
+    return (arr);
 }
 
 char    **ft_strsplit(char const *s, char c)
 {
-    char    *str;
-    char    **arr;
-    int     i;
-    int     j;
+    char **line;
+    char *newstr;
 
-    str = ft_strdup(s);
-    i = 0;
-    if (!(arr = (char **)malloc(sizeof(char *) * (ft_wordcount(str, c) + 1))))
+    if ((!s) || (!(newstr = ft_strdup((char *)s))))
         return (NULL);
-    while (i < ft_wordcount(str, c))
-    {
-        j = 0;
-        if (!(arr[i] = (char *)malloc(sizeof(char) * (ft_wordlen(str, c) + 1))))
-            return (NULL);
-        while (*str == c)
-            str++;
-        while((*str) && (*str != c))
-            arr[i][j++] = *str++;
-        arr[i][j] = '\0';
-        i++;
-    }
-    arr[i] = '\0';
-    return (arr);
+    line = ft_words(newstr, c, ft_wordcount(newstr, c));
+    free(newstr); // зачеемЖ
+    return (line);
 }
 
 int     main(void)	
 {
 	char	**arr_str;
-    char str[] = "***Hi*darling***i**really**miss***you";
+    char const str[] = "**********good*";
     char sym = '*';
 
-	if (!(arr_str = ft_strsplit(str, sym)))
-		return (0);
-	while (*arr_str != ((void *)0))
+	arr_str = ft_strsplit(str, sym);
+
+	while (*arr_str)
 	{
 		printf("%s\n", *arr_str);
 		arr_str++;

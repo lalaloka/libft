@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t  ft_strlen(const char *str)
 {
@@ -21,11 +20,4 @@ size_t  ft_strlen(const char *str)
     while(str[i])
         i++;
     return (i);
-}
-
-int main()
-{
-    char s[] = "012345";
-    printf("%d", ft_strlen(s));
-    return 0;
 }

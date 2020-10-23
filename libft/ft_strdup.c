@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char  *ft_strdup(const char *str)
 {
@@ -29,13 +28,4 @@ char  *ft_strdup(const char *str)
 		result[i] = '\0';
 	}
 	return (result);
-}
-
-int main()
-{
-   char const s[]="DA MNE VOOBSHE POXUI";
-   char *str;
-   str = ft_strdup(s);
-   printf("%s", str);
-   return 0;
 }

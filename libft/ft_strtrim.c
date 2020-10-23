@@ -13,28 +13,47 @@
 #include "libft.h"
 #include <stdio.h>
 
+size_t  last_char(char const *s)
+{
+    size_t i;
+    size_t j;
+
+    i = 0;
+    j = 0;
+    while (s[i])
+        {
+            if ((s[i] != '\n') && (s[i] != ' ') && (s[i] != '\t'))
+                j = i;
+            i++;
+        }
+    return (j);
+}
+
 char    *ft_strtrim(char const *s)
 {
-    char *news;
+    char    *new;
+    size_t  i;
+    size_t  j;
+    size_t  l_ch;
 
-    news = ft_strnew(ft_strlen(s));
-    if (!news)
+    l_ch = last_char(s);
+    i = 0;
+    j = 0;
+    if(!(new = ft_strnew(ft_strlen(s))))
         return (NULL);
-    while (*s == '\n' || *s == ' ' || *s == '\t')
-        s++;
-    while (*s)
+    while ((s[i] == '\n') || (s[i] == ' ') || (s[i] == '\t'))
+        i++;
+    while ((s[i]) && (i <= l_ch))
     {
-            *news = *s;
-            news++;
-            s++;
+        new[j++] = s[i++];
     }
-    *news = '\0';
-    return (news);
+    new[j] = '\0';
+    return (new);
 }
 
 int main()
 {
-   const char str[] = "          kro k nam prishel     ";
+   const char str[] = "kro k nam prishel";
    char *new;
 
    new = ft_strtrim(str);

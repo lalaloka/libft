@@ -51,6 +51,7 @@ char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strnstr(const char *s, const char *substr, size_t len);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strstr(const char *str, const char *substr);
+char				*ft_strnew(size_t size);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
