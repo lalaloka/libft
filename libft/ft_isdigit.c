@@ -14,5 +14,8 @@
 
 int     ft_isdigit(int ch)
 {
-	return (ft_isalpha(ch) || ft_isdigit(ch));
+    if (ch >= '0' && ch <= '9')
+		return (1);
+	else
+		return (0);
 }
