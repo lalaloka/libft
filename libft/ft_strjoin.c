@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 char    *ft_strjoin(char const *s1, char const *s2)
 {
@@ -24,4 +25,15 @@ char    *ft_strjoin(char const *s1, char const *s2)
     ft_strcpy(newstr, s1);
     ft_strcat(newstr, s2);
     return (newstr);
+}
+
+int     main()
+{
+    char const first[] = "I have big ";
+    char const second[] = "DICK";
+    char *full;
+
+    full = ft_strjoin(first, second);
+    printf("%s\n", full);
+    return 0;
 }
