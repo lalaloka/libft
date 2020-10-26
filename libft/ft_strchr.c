@@ -23,5 +23,7 @@ char    *ft_strchr (const char *str, int ch)
             return (point);
         point++;
     }
+	if (!ch && *point == '\0')
+		return	(point);
     return (NULL);
 }

@@ -25,5 +25,7 @@ char *ft_strrchr (const char *str, int ch)
             current = point;
         point++;
     }
+	if (!ch && *point == '\0')
+	return	(point);
     return (current);
 }
