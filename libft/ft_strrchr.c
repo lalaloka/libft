@@ -21,11 +21,11 @@ char *ft_strrchr (const char *str, int ch)
     point =(char *)str;
     while (*point)
     {
-        if (*point == ch)
+        if ((unsigned char)*point == (unsigned char)ch)
             current = point;
         point++;
     }
 	if (!ch && *point == '\0')
-	return	(point);
+		return (point);
     return (current);
 }
