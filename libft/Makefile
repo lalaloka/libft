@@ -72,13 +72,8 @@ SRCS		= ft_memset.c\
 	ft_putstr_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
-BONUS		 = ft_lstnew.c ft_lstdelone.c ft_lstadd_front.c ft_lstclear.c \
-			ft_lstiter.c ft_lstmap.c ft_lstsplit.c ft_lstlast.c \
-			ft_lstsize.c ft_lstadd_back.c
 
 OBJS		= ${SRCS:.c=.o}
-
-OBJS_BONUS	= ${BONUS:.c=.o}
 
 .c.o:
 			@${CC} ${CFLAGS} ${HEADER} -c $< -o ${<:.c=.o}
@@ -96,20 +91,6 @@ $(NAME):	${OBJS}
 			@ar rc ${NAME} ${OBJS}
 			@ranlib ${NAME}
 
-bonus:		${OBJS} ${OBJS_BONUS}
-			@echo "----------- \033[32m Avec Bonus Terminé\033[0m -----------"
-			@echo "\n\033[32m"
-			@echo "██      ██ ██████  ███████ ████████     ██████   ██████  ███    ██ ██    ██ ███████ "
-			@echo "██      ██ ██   ██ ██         ██        ██   ██ ██    ██ ████   ██ ██    ██ ██      "
-			@echo "██      ██ ██████  █████      ██        ██████  ██    ██ ██ ██  ██ ██    ██ ███████ " 
-			@echo "██      ██ ██   ██ ██         ██        ██   ██ ██    ██ ██  ██ ██ ██    ██      ██ "
-			@echo "███████ ██ ██████  ██         ██        ██████   ██████  ██   ████  ██████  ███████ " 
-			@ar rc ${NAME} ${OBJS} ${OBJS_BONUS}
-			@echo "\033[0m\nCréation de la librairie avec les Bonus... \033[32mok\033[0m"
-			@ranlib ${NAME}
-			@echo "Optimisation ... \033[32mok\033[0m"
-			@echo "\033[1;31;40m -------------- TERMINÉ ---------------\033[0m"
-
 clean:	
 			@rm -f ${OBJS} ${OBJS_BONUS}
 			@echo "\n\033[32m"
@@ -126,9 +107,6 @@ fclean:		clean
 			@rm -f test
 			
 re:			fclean	all
-
-test:		libft.a
-			@${CC} ${HEADER} -L. -O ../unit_test/main.c  ../unit_test/unit_test.c -o test -lft -lbsd
 
 so:			
 			gcc -o libft.so -shared *.o

@@ -59,10 +59,3 @@ char    *ft_itoa(int n)
     ft_string(number, new, len);
     return (number);
 }
-
-int     main()
-{
-    int i = -2147483648;
-    printf("number through string = %s\n", ft_itoa(i));
-    return 0;
-}

@@ -11,21 +11,24 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
 void    *ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-    size_t i;
+	size_t	i;
+	char	*dst_n;
+	char	*src_n;
 
-    i = 0;
-    if (!dst && !src)
-        return (0);
+	i = 0;
+	dst_n = (char *)dst;
+	src_n = (char *)src;
     while (i < n)
     {
-        ((char *)dst)[i] = ((char *)src)[i];
-        if (((char *)src)[i] == c)
-            break;
-        i++;
-
-    }
-    return (dst);
+		dst_n[i] = src_n[i];
+		if ((unsigned char)src_n[i] == (unsigned char)c)
+			return ((char *)dst + i + 1);
+    	i++;
+	}
+    return (NULL);
 }

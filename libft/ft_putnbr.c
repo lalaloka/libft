@@ -32,10 +32,3 @@ void ft_putnbr(int n)
     else
         ft_putchar(n + '0');
 }
-
-int main()
-{
-    int i = 2147483647;
-    ft_putnbr(i);
-    return 0;
-}

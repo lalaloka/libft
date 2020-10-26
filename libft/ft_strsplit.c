@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t  ft_wordcount(char *line, char sym)
 {
@@ -87,20 +86,4 @@ char    **ft_strsplit(char const *s, char c)
     line = ft_words(newstr, c, ft_wordcount(newstr, c));
     free(newstr); // зачеемЖ
     return (line);
-}
-
-int     main(void)	
-{
-	char	**arr_str;
-    char const str[] = "**********good*";
-    char sym = '*';
-
-	arr_str = ft_strsplit(str, sym);
-
-	while (*arr_str)
-	{
-		printf("%s\n", *arr_str);
-		arr_str++;
-	}
-	return (0);
 }

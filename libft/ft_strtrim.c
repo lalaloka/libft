@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 size_t  last_char(char const *s)
 {
@@ -49,14 +48,4 @@ char    *ft_strtrim(char const *s)
     }
     new[j] = '\0';
     return (new);
-}
-
-int main()
-{
-   const char str[] = "kro k nam prishel";
-   char *new;
-
-   new = ft_strtrim(str);
-   printf("%s", new);
-   return 0;
 }
