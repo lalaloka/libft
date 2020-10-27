@@ -11,28 +11,34 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int     ft_atoi(const char *str)
 {
-    int neg;
-    int nbr;
+    long neg;
+    long nbr;
 
-    neg = 0;
+    neg = 1;
     nbr = 0;
-    while (*str == ' ')
+    while (*str == ' ' || *str == '\t' || *str == '\v' ||
+			*str == '\f' || *str == '\r' || *str == '\n')
         str++;
     if (*str == '-')
-        neg = 1;
+        neg = -1;
     if (*str == '-' || *str == '+')
         str++;
     while (*str == '0')
         str++;
     while (*str >= '0' && *str <= '9')
         {
+			if ((nbr > FT_LIM || (nbr == FT_LIM && (*str - 48) > 7))
+			&& neg == 1)
+				return (-1);
+			if ((nbr > FT_LIM || (nbr == FT_LIM && (*str - 48) > 7))
+			&& neg == -1)
+				return (0);
             nbr = nbr * 10 + (*str - '0');
             str++;
         }
-    if (neg == 1)
-        return (-nbr);
-    return (nbr);
+    return ((int)(nbr * neg));
 }

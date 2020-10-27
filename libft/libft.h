@@ -17,6 +17,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+# define FT_LIM 922337203685477580
+
 typedef struct s_list
 {
 	void *content;
